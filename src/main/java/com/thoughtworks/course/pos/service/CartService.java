@@ -14,5 +14,6 @@ public class CartService {
 
     public List<CartItem> scan(List<String> barcodes) {
         // TODO implement scanning of barcodes
+        throw new RuntimeException("Not implemented");
     }
 }

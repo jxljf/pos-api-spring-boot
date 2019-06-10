@@ -36,24 +36,24 @@ public class CartServiceTest {
     @Test
     public void shouldScanInstantNoodle() {
         List<CartItem> cartItems = cartService.scan(Collections.singletonList("ITEM000000"));
-        assertEquals(1, cartItems.size());
-        assertEquals("方便面", cartItems.get(0).getName());
-        assertEquals(1, cartItems.get(0).getCount());
+        assertEquals("Cart Size", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 1, cartItems.get(0).getCount());
     }
 
     @Test
     public void shouldScanInstantNoodleTwice() {
         List<CartItem> cartItems = cartService.scan(Arrays.asList("ITEM000000", "ITEM000000"));
-        assertEquals(1, cartItems.size());
-        assertEquals("方便面", cartItems.get(0).getName());
-        assertEquals(2, cartItems.get(0).getCount());
+        assertEquals("Cart Size", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 2, cartItems.get(0).getCount());
     }
 
     @Test
     public void shouldScanInstantNoodleWithSuffix() {
         List<CartItem> cartItems = cartService.scan(Collections.singletonList("ITEM000000-2"));
-        assertEquals(1, cartItems.size());
-        assertEquals("方便面", cartItems.get(0).getName());
-        assertEquals(2, cartItems.get(0).getCount());
+        assertEquals("Cart Size", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 2, cartItems.get(0).getCount());
     }
 }

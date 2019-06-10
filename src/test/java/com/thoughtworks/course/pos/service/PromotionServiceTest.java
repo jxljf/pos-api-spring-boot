@@ -7,7 +7,6 @@ import com.thoughtworks.course.pos.model.PromotionType;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,22 +21,20 @@ public class PromotionServiceTest {
 
     @Before
     public void setUp() {
-        promotionService = new PromotionService(Collections.singletonList(
-                promotion
-        ));
+        promotionService = new PromotionService(Collections.singletonList(promotion));
     }
 
     @Test
     public void shouldNotDiscountWhen2InChart() {
         List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(twoInstantNoodle));
-        assertEquals(0, discountedItems.size());
+        assertEquals("List Count", 0, discountedItems.size());
     }
 
     @Test
     public void shouldDiscount1When3InChart() {
         List<DiscountedItem> cartItems = promotionService.apply(Collections.singletonList(threeInstantNoodle));
-        assertEquals(1, cartItems.size());
-        assertEquals("方便面", cartItems.get(0).getName());
-        assertEquals(1, cartItems.get(0).getCount());
+        assertEquals("List Count", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 1, cartItems.get(0).getCount());
     }
 }

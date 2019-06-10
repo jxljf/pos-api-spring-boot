@@ -15,5 +15,6 @@ public class PromotionService {
 
     public List<DiscountedItem> apply(List<CartItem> cartItems) {
         // TODO implement applying promotion for chart items
+        throw new RuntimeException("Not implemented");
     }
 }
