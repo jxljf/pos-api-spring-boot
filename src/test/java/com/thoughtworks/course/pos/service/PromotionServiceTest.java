@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 public class PromotionServiceTest {
     private final CartItem twoInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 2, 9.0f);
     private final CartItem threeInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 3, 13.5f);
+    private final CartItem sevenInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 7, 31.5f);
     private final Promotion promotion = new Promotion(PromotionType.BUY_TWO_GET_ONE_FREE, Collections.singletonList("ITEM000000"));
 
     private PromotionService promotionService;
@@ -36,5 +37,13 @@ public class PromotionServiceTest {
         assertEquals("List Count", 1, cartItems.size());
         assertEquals("Item Name", "方便面", cartItems.get(0).getName());
         assertEquals("Item Count", 1, cartItems.get(0).getCount());
+    }
+
+    @Test
+    public void shouldDiscount2When7InChart() {
+        List<DiscountedItem> cartItems = promotionService.apply(Collections.singletonList(sevenInstantNoodle));
+        assertEquals("List Count", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 2, cartItems.get(0).getCount());
     }
 }
