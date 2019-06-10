@@ -19,6 +19,13 @@
 git clone https://github.com/zaypen-community-sharing/pos-api.git
 ```
 
+## 完成代码
+
+下述两个方法需要被完成
+
+- com/thoughtworks/course/pos/service/CartService.java 的 `scan` 方法
+- com/thoughtworks/course/pos/service/PromotionService.java 的 `apply` 方法
+
 ## 执行测试
 
 macOS/Linux
