@@ -56,4 +56,12 @@ public class CartServiceTest {
         assertEquals("Item Name", "方便面", cartItems.get(0).getName());
         assertEquals("Item Count", 2, cartItems.get(0).getCount());
     }
+
+    @Test
+    public void shouldMergeSameItems() {
+        List<CartItem> cartItems = cartService.scan(Arrays.asList("ITEM000000", "ITEM000000-2"));
+        assertEquals("Cart Size", 1, cartItems.size());
+        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
+        assertEquals("Item Count", 3, cartItems.get(0).getCount());
+    }
 }
