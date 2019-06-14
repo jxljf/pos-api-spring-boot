@@ -2,8 +2,6 @@ package com.thoughtworks.course.pos.service;
 
 import com.thoughtworks.course.pos.model.CartItem;
 import com.thoughtworks.course.pos.model.DiscountedItem;
-import com.thoughtworks.course.pos.model.Promotion;
-import com.thoughtworks.course.pos.model.PromotionType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,13 +14,13 @@ public class PromotionServiceTest {
     private final CartItem twoInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 2, 9.0f);
     private final CartItem threeInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 3, 13.5f);
     private final CartItem sevenInstantNoodle = new CartItem("方便面", "袋", 4.50f, "ITEM000000", "./imgs/instant-noodles.jpeg", 7, 31.5f);
-    private final Promotion promotion = new Promotion(PromotionType.BUY_TWO_GET_ONE_FREE, Collections.singletonList("ITEM000000"));
+    private final CartItem threeApple = new CartItem("苹果", "斤", 5.50f, "ITEM000003", "./imgs/apple.jpeg", 3, 16.5f);
 
     private PromotionService promotionService;
 
     @Before
     public void setUp() {
-        promotionService = new PromotionService(Collections.singletonList(promotion));
+        promotionService = new PromotionService();
     }
 
     @Test
@@ -33,17 +31,26 @@ public class PromotionServiceTest {
 
     @Test
     public void shouldDiscount1When3InChart() {
-        List<DiscountedItem> cartItems = promotionService.apply(Collections.singletonList(threeInstantNoodle));
-        assertEquals("List Count", 1, cartItems.size());
-        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
-        assertEquals("Item Count", 1, cartItems.get(0).getCount());
+        List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(threeInstantNoodle));
+        assertEquals("List Count", 1, discountedItems.size());
+        assertEquals("Item Name", "方便面", discountedItems.get(0).name);
+        assertEquals("Item Count", 1, discountedItems.get(0).discounted);
     }
 
     @Test
     public void shouldDiscount2When7InChart() {
-        List<DiscountedItem> cartItems = promotionService.apply(Collections.singletonList(sevenInstantNoodle));
-        assertEquals("List Count", 1, cartItems.size());
-        assertEquals("Item Name", "方便面", cartItems.get(0).getName());
-        assertEquals("Item Count", 2, cartItems.get(0).getCount());
+        List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(sevenInstantNoodle));
+        /*
+         * TODO 参考前一个测试完成以下三个断言
+         * 1. 断言 ListCount
+         * 2. 断言 Item Name
+         * 3. 断言 Item Count
+         */
+    }
+
+    @Test
+    public void shouldNotDiscountApple() {
+        List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(threeApple));
+        assertEquals("List Count", 0, discountedItems.size());
     }
 }

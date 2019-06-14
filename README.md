@@ -2,6 +2,8 @@
 
 此代码为 `TDD与重构` 和 `Web MVC / Restful` 的随堂练习。
 
+业务说明参见 https://github.com/XLuoChen/pos-page/blob/master/README.md
+
 请使用 git 将代码克隆后，实现缺失的部分代码，最终通过测试。
 
 ## 依赖
@@ -23,8 +25,8 @@ git clone https://github.com/zaypen-community-sharing/pos-api.git
 
 下述两个方法需要被完成
 
-- com/thoughtworks/course/pos/service/CartService.java 的 `scan` 方法
-- com/thoughtworks/course/pos/service/PromotionService.java 的 `apply` 方法
+- src/main/java/com/thoughtworks/course/pos/service/CartService.java 的 `mergeBarcodes` 方法
+- src/test/java/com/thoughtworks/course/pos/service/PromotionServiceTest.java 的 `shouldDiscount2When7InChart` 方法
 
 ## 执行测试
 
