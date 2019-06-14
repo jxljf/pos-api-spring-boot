@@ -66,20 +66,14 @@ public class CartService {
         for (Barcode barcode : barcodes) {
             boolean existed = false;
             for (Barcode mergedBarcode : mergedBarcodes) {
-                /*
-                 * TODO 按照提示完成代码
-                 * 提示
-                 * 如果 mergedBarcode.code 是 barcode.code
-                 *     设置 mergedBarcode 的 count 为它当前的 count 加上 barcode 的 count
-                 *     标记 existed 为真
-                 */
+                if (barcode.code.equals(mergedBarcode.code)) {
+                    mergedBarcode.count += barcode.count;
+                    existed = true;
+                }
             }
-            /*
-             * TODO 按照提示完成代码
-             * 提示
-             * 如果 existed 为假
-             *     将 barcode 添加进 mergedBarcodes
-             */
+            if (!existed) {
+                mergedBarcodes.add(barcode);
+            }
         }
         return mergedBarcodes;
     }

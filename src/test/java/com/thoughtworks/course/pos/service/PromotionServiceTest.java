@@ -40,12 +40,9 @@ public class PromotionServiceTest {
     @Test
     public void shouldDiscount2When7InChart() {
         List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(sevenInstantNoodle));
-        /*
-         * TODO 参考前一个测试完成以下三个断言
-         * 1. 断言 ListCount
-         * 2. 断言 Item Name
-         * 3. 断言 Item Count
-         */
+        assertEquals("List Count", 1, discountedItems.size());
+        assertEquals("Item Name", "方便面", discountedItems.get(0).name);
+        assertEquals("Item Count", 2, discountedItems.get(0).discounted);
     }
 
     @Test
