@@ -23,10 +23,38 @@ git clone https://github.com/zaypen-community-sharing/pos-api.git
 
 ## 完成代码
 
+### 《TDD与重构》 章节
+
+默认 master 分支
+
 下述两个方法需要被完成
 
 - src/main/java/com/thoughtworks/course/pos/service/CartService.java 的 `mergeBarcodes` 方法
 - src/test/java/com/thoughtworks/course/pos/service/PromotionServiceTest.java 的 `shouldDiscount2When7InChart` 方法
+
+### 《Web MVC / Restful》 章节
+
+检出 api 分支
+
+```bash
+git checkout api
+```
+
+下述两个方法需要被完成
+
+- com/thoughtworks/course/pos/service/OrderService.java 的 getDiscountPrice 方法
+- com/thoughtworks/course/pos/service/OrderController.java 的 getOrders 方法
+
+启动 Spring Boot 程序
+
+```bash
+./gradlew bootRun # macOS/Linux
+gradlew.bat test # Windows
+```
+
+访问 pos-page 页面
+
+[http://localhost:8080](http://localhost:8080)
 
 ## 执行测试
 
