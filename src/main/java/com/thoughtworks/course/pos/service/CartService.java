@@ -3,11 +3,13 @@ package com.thoughtworks.course.pos.service;
 import com.thoughtworks.course.pos.model.Barcode;
 import com.thoughtworks.course.pos.model.CartItem;
 import com.thoughtworks.course.pos.model.Item;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class CartService {
     private final List<Item> items;
 

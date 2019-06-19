@@ -6,11 +6,13 @@ package com.thoughtworks.course.pos.model;
 public class DiscountedItem extends ToString {
     public String name;
     public String unit;
-    public int discounted;
+    public float price;
+    public int count;
 
-    public DiscountedItem(String name, String unit, int discounted) {
+    public DiscountedItem(String name, String unit, float price, int count) {
         this.name = name;
         this.unit = unit;
-        this.discounted = discounted;
+        this.price = price;
+        this.count = count;
     }
 }

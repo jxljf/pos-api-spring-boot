@@ -34,7 +34,7 @@ public class PromotionServiceTest {
         List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(threeInstantNoodle));
         assertEquals("List Count", 1, discountedItems.size());
         assertEquals("Item Name", "方便面", discountedItems.get(0).name);
-        assertEquals("Item Count", 1, discountedItems.get(0).discounted);
+        assertEquals("Item Count", 1, discountedItems.get(0).count);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class PromotionServiceTest {
         List<DiscountedItem> discountedItems = promotionService.apply(Collections.singletonList(sevenInstantNoodle));
         assertEquals("List Count", 1, discountedItems.size());
         assertEquals("Item Name", "方便面", discountedItems.get(0).name);
-        assertEquals("Item Count", 2, discountedItems.get(0).discounted);
+        assertEquals("Item Count", 2, discountedItems.get(0).count);
     }
 
     @Test
