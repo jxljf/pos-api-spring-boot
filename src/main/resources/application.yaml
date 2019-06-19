@@ -1,0 +1,4 @@
+spring:
+  resources:
+    static-locations:
+      - classpath:/pos-page/
