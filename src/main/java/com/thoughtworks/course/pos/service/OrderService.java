@@ -41,7 +41,11 @@ public class OrderService {
     }
 
     private int getDiscountPrice(List<DiscountedItem> discountedItems) {
-        return 0; // TODO 计算优惠价格
+        int discountPrice = 0;
+        for (DiscountedItem item : discountedItems) {
+            discountPrice += item.price * item.count;
+        }
+        return discountPrice;
     }
 
     public Collection<Order> getOrders() {

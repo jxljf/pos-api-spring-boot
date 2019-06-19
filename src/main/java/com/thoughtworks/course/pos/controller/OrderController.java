@@ -20,14 +20,13 @@ public class OrderController {
         return orderService.createOrder(barcodes);
     }
 
-    // TODO 增加获取一个资源的 @RequestMapping 注解
+    @RequestMapping(path = "/orders", method = RequestMethod.GET)
     public Collection<Order> getOrders() {
         return orderService.getOrders();
     }
 
     @RequestMapping(path = "/orders/{id}", method = RequestMethod.GET)
     public Order getOrder(@PathVariable Integer id) {
-        // TODO 调用 orderService 指定 id 的 Order，并返回
-        return null;
+        return orderService.getOrder(id);
     }
 }
