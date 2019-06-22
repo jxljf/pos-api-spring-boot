@@ -47,9 +47,13 @@ function renderView(result) {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.confirm').addEventListener('click', function() {
-        var userInput = document.querySelector('#user-input').value.split(',').map(item => item.trim())
-
-        var result = generateOutputs(userInput)
-        renderView(result)
+        var userInput = document.querySelector('#user-input').value.split(',').map(item => item.trim());
+        fetch('http://localhost:8080/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInput)
+        }).then(response => response.json()).then(result => renderView(result));
     })
 })
