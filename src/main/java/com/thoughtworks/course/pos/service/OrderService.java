@@ -26,8 +26,9 @@ public class OrderService {
                 getTotalPrice(cartItems),
                 getDiscountPrice(discountedItems)
                 );
-        final Order order = new Order(cartItems, discountedItems, summary);
-        orders.put(orders.size(), order);
+        final Integer id = orders.size();
+        final Order order = new Order(id, cartItems, discountedItems, summary);
+        orders.put(id, order);
         return order;
     }
 
@@ -45,5 +46,9 @@ public class OrderService {
 
     public Collection<Order> getOrders() {
         return orders.values();
+    }
+
+    public Order getOrder(Integer id) {
+        return orders.get(id);
     }
 }

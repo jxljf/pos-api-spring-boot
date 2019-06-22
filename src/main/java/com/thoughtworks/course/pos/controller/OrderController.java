@@ -2,10 +2,7 @@ package com.thoughtworks.course.pos.controller;
 
 import com.thoughtworks.course.pos.model.Order;
 import com.thoughtworks.course.pos.service.OrderService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,9 +20,14 @@ public class OrderController {
         return orderService.createOrder(barcodes);
     }
 
-    @RequestMapping(path = "/orders", method = RequestMethod.GET)
+    // TODO 增加获取一个资源的 @RequestMapping 注解
     public Collection<Order> getOrders() {
-        // TODO 调用 orderService 获取所有 Order，并返回
+        return orderService.getOrders();
+    }
+
+    @RequestMapping(path = "/orders/{id}", method = RequestMethod.GET)
+    public Order getOrder(@PathVariable Integer id) {
+        // TODO 调用 orderService 指定 id 的 Order，并返回
         return null;
     }
 }
